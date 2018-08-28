@@ -1,18 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Landing from './Components/Landing.jsx'
+import Bedtime from './Components/Bedtime.jsx'
+import NavBar from './Components/NavBar.jsx'
+import GuessWord from './Components/GuessWord.jsx'
+import GuessInsider from './Components/GuessInsider.jsx'
 
 class App extends Component {
+
+  state = {
+    mode: "Landing"
+  }
+
+  renderState(mode) {
+    switch(mode) {
+      case "Landing":
+        return <Landing switchMode={ this.switchMode }/>;
+      case "Bedtime":
+        return <Bedtime/>;
+      case "GuessWord":
+        return <GuessWord/>;
+      case "GuessInsider":
+        return <GuessInsider/>;
+      default:
+        return <p>I suck</p>;
+    }
+  }
+
+  switchMode = (mode) => {
+    this.setState({ mode: mode })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <NavBar
+        switchMode={ this.switchMode }
+        mode={ this.state.mode }
+      />
+      { this.renderState(this.state.mode) }
       </div>
     );
   }
