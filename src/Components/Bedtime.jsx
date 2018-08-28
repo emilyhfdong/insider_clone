@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import Audio from './Audio.jsx';
+import wordBank from '../Resources/word_bank.json'
 
 
 class Bedtime extends Component {
   state = {
     currentSound: "sleepFools",
     currentMessage: "It's time for bed, kiddos"
-  }
-
-  changeAudio = (sound) => {
-    this.setState({ currentSound: sound })
   }
 
   changePhase = (sound, message, time) => {
@@ -21,12 +18,17 @@ class Bedtime extends Component {
     )
     setTimeout(helper, time)
   }
+  getRandomWord = () => {
+    const index = Math.floor(Math.random() * (481))
+    return wordBank[index]
+  }
 
   componentDidMount() {
     let time = 0
-    this.changePhase("masterAwake", "WORD", time += 5000)
-    this.changePhase("defaultSleep", "WORD", time += 5000)
-    this.changePhase("littleGirlAwake", "WORD", time += 2500)
+    const randomWord = this.getRandomWord()
+    this.changePhase("masterAwake", randomWord, time += 5000)
+    this.changePhase("defaultSleep", randomWord, time += 5000)
+    this.changePhase("littleGirlAwake", randomWord, time += 2500)
     this.changePhase("defaultSleep", "", time += 5000)
     this.changePhase("everyoneAwake", "GOOD MORNING SUN", time += 2500)
   }
