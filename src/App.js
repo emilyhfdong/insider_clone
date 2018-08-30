@@ -4,6 +4,7 @@ import Bedtime from './Components/Bedtime.jsx'
 import NavBar from './Components/NavBar.jsx'
 import GuessWord from './Components/GuessWord.jsx'
 import GuessInsider from './Components/GuessInsider.jsx'
+import './App.css'
 
 class App extends Component {
 
