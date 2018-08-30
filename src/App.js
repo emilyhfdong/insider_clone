@@ -17,7 +17,7 @@ class App extends Component {
       case "Landing":
         return <Landing switchMode={ this.switchMode }/>;
       case "Bedtime":
-        return <Bedtime/>;
+        return <Bedtime switchMode={ this.switchMode }/>;
       case "GuessWord":
         return <GuessWord saveInterrogationTime={ this.saveInterrogationTime }/>;
       case "GuessInsider":
