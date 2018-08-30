@@ -7,7 +7,7 @@ class GuessWord extends Component {
     return (
       <div className="GuessWord">
         <h1>question me, kiddos</h1>
-        <Timer remainingTime={10}/>
+        <Timer saveInterrogationTime={ this.props.saveInterrogationTime } remainingTime={5*60}/>
       </div>
     );
   }

@@ -8,7 +8,8 @@ import GuessInsider from './Components/GuessInsider.jsx'
 class App extends Component {
 
   state = {
-    mode: "Landing"
+    mode: "Landing",
+    interrogationTime: 0
   }
 
   renderState(mode) {
@@ -18,9 +19,9 @@ class App extends Component {
       case "Bedtime":
         return <Bedtime/>;
       case "GuessWord":
-        return <GuessWord/>;
+        return <GuessWord saveInterrogationTime={ this.saveInterrogationTime }/>;
       case "GuessInsider":
-        return <GuessInsider/>;
+        return <GuessInsider interrogationTime={ this.state.interrogationTime }/>;
       default:
         return <p>I suck</p>;
     }
@@ -28,6 +29,11 @@ class App extends Component {
 
   switchMode = (mode) => {
     this.setState({ mode: mode })
+  }
+  saveInterrogationTime = (seconds) => {
+    if(this.state.mode === "GuessWord") {
+      this.setState({ interrogationTime: seconds, mode: "GuessInsider" })
+    }
   }
 
   render() {
