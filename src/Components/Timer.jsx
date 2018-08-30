@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 
 class Timer extends Component {
-
-
   state = {
+    isCounting: false,
     remainingSeconds: this.props.remainingTime
   };
 
@@ -20,7 +19,25 @@ class Timer extends Component {
 
   startTimer = () => {
     this.intervalId = setInterval(this.countDown, 1000);
+    this.setState({isCounting: true})
   };
+
+  pauseTimer = () => {
+    this.setState({isCounting: false})
+    clearInterval(this.intervalId)
+  };
+
+  resetTimer = () => {
+    this.setState({isCounting: false})
+    clearInterval(this.intervalId)
+    this.setState({remainingSeconds: this.props.remainingTime})
+  }
+  finishGuessing = () => {
+    clearInterval(this.intervalId)
+    const interrogationTime = this.props.remainingTime - this.state.remainingSeconds
+    this.props.saveInterrogationTime(interrogationTime)
+  }
+
 
   countDown = () => {
     if (this.state.remainingSeconds !== 0) {
@@ -35,9 +52,13 @@ class Timer extends Component {
     return (
       <div className="Timer">
         <h2>{time.minutes}:{time.seconds}</h2>
-        <button onClick={this.startTimer}>Start</button>
-        <button>Pause</button>
-        <button>Stop</button>
+        {this.state.isCounting ? (
+          <button onClick={this.pauseTimer}>Pause</button>
+        ):(
+          <button onClick={this.startTimer}>Start</button>
+        )}
+        <button onClick={this.resetTimer}>Reset</button>
+        <button onClick={this.finishGuessing} >GOT IT</button>
       </div>
     );
   }
