@@ -27,7 +27,7 @@ class NavBar extends Component {
       if (button.mode === this.props.mode) {
         isFound = true
       }
-      return <button onClick={event => this.props.switchMode(button.mode)} disabled={isFound}>{button.name}</button>
+      return <button key={button.mode} onClick={event => this.props.switchMode(button.mode)} disabled={isFound}>{button.name}</button>
     })
 
     return (

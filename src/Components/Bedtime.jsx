@@ -5,8 +5,9 @@ import wordBank from '../Resources/word_bank.json'
 
 class Bedtime extends Component {
   state = {
-    currentSound: "sleepFools",
-    currentMessage: "It's time for bed, kiddos"
+    timeouts: [],
+    currentSound: "",
+    currentMessage: ""
   }
 
   changePhase = (sound, message, time) => {
@@ -16,16 +17,20 @@ class Bedtime extends Component {
         currentMessage: message
       })
     )
-    setTimeout(helper, time)
+    this.state.timeouts.push(setTimeout(helper, time))
   }
   getRandomWord = () => {
     const index = Math.floor(Math.random() * (481))
     return wordBank[index]
   }
-
-  componentDidMount() {
+  restartPhase = () => {
+    this.state.timeouts.forEach(timeout => clearTimeout(timeout))
+    this.startPhase()
+  }
+  startPhase = () => {
     let time = 0
     const randomWord = this.getRandomWord()
+    this.changePhase("sleepFools", "It's time for bed, kiddos", time)
     this.changePhase("masterAwake", randomWord, time += 5000)
     this.changePhase("defaultSleep", randomWord, time += 5000)
     this.changePhase("littleGirlAwake", randomWord, time += 2500)
@@ -33,11 +38,17 @@ class Bedtime extends Component {
     this.changePhase("everyoneAwake", "GOOD MORNING SUN", time += 2500)
   }
 
+  componentDidMount() {
+    this.startPhase()
+  }
+
   render() {
     return (
       <div className="Bedtime">
-        <Audio sound={this.state.currentSound}/>
+        {this.state.currentSound && <Audio sound={this.state.currentSound}/>}
         <h1>{this.state.currentMessage}</h1>
+        <button onClick={this.restartPhase}>RESTART</button>
+        {this.state.currentSound === "everyoneAwake" && <button onClick={() => this.props.switchMode("GuessWord")}>NEXT</button>}
       </div>
     );
   }
