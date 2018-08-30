@@ -4,9 +4,9 @@ class Landing extends Component {
   render() {
     return (
       <div className="Landing">
-        <h1>Clone of the Insider of the world</h1>
-        <p>rules</p>
-        <button onClick={ event => this.props.switchMode("Bedtime") }>Start</button>
+        <h1 className="title">game</h1>
+        <p className="rules">rules</p>
+        <button className="startBtn" onClick={ event => this.props.switchMode("Bedtime") }>play</button>
       </div>
     );
   }

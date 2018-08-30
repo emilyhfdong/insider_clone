@@ -1,0 +1,25 @@
+$darkGreen: #30554E;
+$salmon: #E48B85;
+$babyPink: #ffc6c2;
+$mustard: #E4B826;
+$turquoise: #5AAAAC;
+
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Josefin+Sans|Pacifico');
+
+$serif: "Abril Fatface";
+$script: "Pacifico";
+$basic: "Josefin Sans";
+
+@import 'Styles/_landing.scss';
+@import 'Styles/_navbar.scss';
+
+
+html {
+  margin: 0px;
+  padding: 0px;
+  body {
+    margin: 0px;
+    padding: 0px;
+    font-family: $basic;
+  }
+}
