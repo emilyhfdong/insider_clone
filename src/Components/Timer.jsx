@@ -35,9 +35,8 @@ class Timer extends Component {
   finishGuessing = () => {
     clearInterval(this.intervalId)
     const interrogationTime = this.props.remainingTime - this.state.remainingSeconds
-    this.props.saveInterrogationTime(interrogationTime)
+    this.props.nextMode(interrogationTime)
   }
-
 
   countDown = () => {
     if (this.state.remainingSeconds !== 0) {
@@ -51,14 +50,14 @@ class Timer extends Component {
     let time = this.secondsToTime(this.state.remainingSeconds)
     return (
       <div className="Timer">
-        <h2>{time.minutes}:{time.seconds}</h2>
+        <h1 className="timeRemaining">{time.minutes}:{time.seconds}</h1>
         {this.state.isCounting ? (
-          <button onClick={this.pauseTimer}>Pause</button>
+          <button className="hvr-grow" onClick={this.pauseTimer}><i className="fa fa-pause"></i></button>
         ):(
-          <button onClick={this.startTimer}>Start</button>
+          <button className="hvr-grow" onClick={this.startTimer}><i className="fa fa-play"></i></button>
         )}
-        <button onClick={this.resetTimer}>Reset</button>
-        <button onClick={this.finishGuessing} >GOT IT</button>
+        <button className="hvr-grow" onClick={this.resetTimer}><i className="fa fa-rotate-left"></i></button>
+        <button className="hvr-grow" onClick={this.finishGuessing}>got it</button>
       </div>
     );
   }

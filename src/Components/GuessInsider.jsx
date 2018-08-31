@@ -3,11 +3,13 @@ import Timer from "./Timer";
 
 
 class GuessInsider extends Component {
+  nextMode = () => {
+    this.props.switchMode("Landing")
+  }
   render() {
     return (
-      <div className="GuessInsider">
-        <h1>it's me</h1>
-        <Timer saveInterrogationTime={ this.props.saveInterrogationTime } remainingTime={this.props.interrogationTime}/>
+      <div className="GuessInsider animated slideInRight">
+        <Timer nextMode={ this.nextMode } remainingTime={this.props.interrogationTime}/>
       </div>
     );
   }

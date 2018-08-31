@@ -22,7 +22,7 @@ class App extends Component {
       case "GuessWord":
         return <GuessWord saveInterrogationTime={ this.saveInterrogationTime }/>;
       case "GuessInsider":
-        return <GuessInsider interrogationTime={ this.state.interrogationTime }/>;
+        return <GuessInsider switchMode={ this.switchMode } interrogationTime={ this.state.interrogationTime }/>;
       default:
         return <p>I suck</p>;
     }

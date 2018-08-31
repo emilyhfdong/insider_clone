@@ -1,15 +1,66 @@
 .Landing {
-  background-color: $babyPink;
+  background-color: $purple;
   padding-top: 3rem;
   height: 100vh;
   text-align: center;
-  .title {
-    font-family: $serif;
-    letter-spacing: 2px;
-    font-size: 80px;
-    color: $salmon;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .titleDiv {
+    display: flex;
+    align-items: center;
+    .fa {
+      color: white;
+      margin: 4rem;
+      font-size: 80px;
+      color: $green;
+    }
+    .title {
+      font-family: $bangers;
+      letter-spacing: 2px;
+      font-size: 80px;
+      color: $orange;
+      text-shadow: 8px 6px 0 $purple, 16px 12px 0 $blue;
+      padding: 0px;
+    }
+
   }
-  .rules {
+  .rulesDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .fa {
+      padding: 0.5rem;
+      color: $orange;
+      cursor: pointer;
+      &.none {
+        visibility: hidden;
+      }
+      &:hover {
+        color: $blue;
+      }
+    }
+    .rules {
+      margin-left: 2rem;
+      margin-right: 2rem;
+      color: $purple;
+      background-color: $green;
+      width: 50rem;
+      height: 15rem;
+      margin-bottom: 3rem;
+      border-radius: 5rem;
+      padding: 2rem;
+      font-size: 20px;
+      // text-transform: uppercase;
+      .ruleCategory {
+        font-family: $josefin;
+        margin-top: 0px;
+        padding-top: 0.5rem;
+        font-size: 24px;
+        text-transform: uppercase;
+        border-bottom: 2px solid $purple;
+      }
+    }
 
   }
   .startBtn {
@@ -19,10 +70,17 @@
     color: white;
     border: none;
     padding: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    background-color: $salmon;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 0.5rem;
+    background-color: $orange;
     box-shadow: gray;
+    margin: 0px;
+    letter-spacing: 1px;
+    outline: none;
+    &:hover {
+      background-color: $blue;
+    }
 
   }
 }
