@@ -1,0 +1,22 @@
+.GuessInsider {
+  padding-top: 3rem;
+  background-color: $orange;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .Timer {
+    .timeRemaining {
+      color: $purple;
+      text-shadow: 4px 3px 0 $blue, 10px 7px 0 $green;
+    }
+    button {
+      background-color: $purple;
+      color: white;
+      .fa {
+        color: white;
+      }
+    }
+  }
+}

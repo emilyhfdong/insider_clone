@@ -7,7 +7,8 @@ class Bedtime extends Component {
   state = {
     timeouts: [],
     currentSound: "",
-    currentMessage: ""
+    currentMessage: "",
+    unmounting: false
   }
 
   changePhase = (sound, message, time) => {
@@ -35,7 +36,11 @@ class Bedtime extends Component {
     this.changePhase("defaultSleep", randomWord, time += 5000)
     this.changePhase("littleGirlAwake", randomWord, time += 2500)
     this.changePhase("defaultSleep", "", time += 5000)
-    this.changePhase("everyoneAwake", "GOOD MORNING SUN", time += 2500)
+    this.changePhase("everyoneAwake", "wake up, kiddos", time += 2500)
+  }
+  nextMode = () => {
+    this.setState({unmounting: true})
+    setTimeout(() => this.props.switchMode("GuessWord"), 500)
   }
 
   componentDidMount() {
@@ -44,11 +49,14 @@ class Bedtime extends Component {
 
   render() {
     return (
-      <div className="Bedtime">
+      <div className={`${this.state.unmounting && "animated slideOutLeft"} Bedtime animated slideInRight`}>
         {this.state.currentSound && <Audio sound={this.state.currentSound}/>}
-        <h1>{this.state.currentMessage}</h1>
-        <button onClick={this.restartPhase}>RESTART</button>
-        {this.state.currentSound === "everyoneAwake" && <button onClick={() => this.props.switchMode("GuessWord")}>NEXT</button>}
+        <h1 className="message">{this.state.currentMessage}</h1>
+        <div className="buttons">
+          <button className="hvr-grow restartBtn" onClick={this.restartPhase}>restart</button>
+          <button className="hvr-grow" onClick={this.nextMode}>next</button>
+          {this.state.currentSound === "everyoneAwake" && <button className="hvr-grow" onClick={this.nextMode}>next</button>}
+        </div>
       </div>
     );
   }

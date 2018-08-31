@@ -1,25 +1,79 @@
-$darkGreen: #30554E;
-$salmon: #E48B85;
-$babyPink: #ffc6c2;
-$mustard: #E4B826;
-$turquoise: #5AAAAC;
+$orange: #F46036;
+$purple: #2E294E;
+$blue: #1B998B;
+$red: #E71D36;
+$green: #FABC3C;
 
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Josefin+Sans|Pacifico');
-
-$serif: "Abril Fatface";
+@import url('https://fonts.googleapis.com/css?family=Bangers|Josefin+Sans|Pacifico|Amaranth|Luckiest+Guy');
+// $serif: "Abril Fatface";
 $script: "Pacifico";
 $basic: "Josefin Sans";
+$josefin: "Josefin Sans";
+$bangers: "Luckiest Guy";
 
 @import 'Styles/_landing.scss';
 @import 'Styles/_navbar.scss';
+@import 'Styles/_bedtime.scss';
+@import 'Styles/_guessWord.scss';
+@import 'Styles/_guessInsider.scss';
+@import 'Styles/_timer.scss';
 
 
 html {
   margin: 0px;
   padding: 0px;
+  background-color: $purple;
   body {
     margin: 0px;
     padding: 0px;
     font-family: $basic;
   }
+}
+
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.hvr-forward {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-forward:hover, .hvr-forward:focus, .hvr-forward:active {
+  -webkit-transform: translateX(8px);
+  transform: translateX(8px);
+}
+
+.hvr-backward {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-backward:hover, .hvr-backward:focus, .hvr-backward:active {
+  -webkit-transform: translateX(-8px);
+  transform: translateX(-8px);
 }
