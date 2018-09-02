@@ -54,7 +54,6 @@ class Bedtime extends Component {
         <h1 className="message">{this.state.currentMessage}</h1>
         <div className="buttons">
           <button className="hvr-grow restartBtn" onClick={this.restartPhase}>restart</button>
-          <button className="hvr-grow" onClick={this.nextMode}>next</button>
           {this.state.currentSound === "everyoneAwake" && <button className="hvr-grow" onClick={this.nextMode}>next</button>}
         </div>
       </div>

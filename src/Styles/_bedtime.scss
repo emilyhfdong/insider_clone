@@ -37,3 +37,16 @@
     }
   }
 }
+
+@media only screen and (max-width: 350px) {
+  .Bedtime {
+    padding: 2rem;
+    justify-content: center;
+    .message {
+      font-size: 60px;
+    }
+    .buttons {
+      flex-direction: column;
+    }
+  }
+}
