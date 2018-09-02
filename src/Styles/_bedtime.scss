@@ -37,11 +37,26 @@
     }
   }
 }
+@media only screen
+    and (device-width : 375px)
+    and (device-height : 812px)
+    and (-webkit-device-pixel-ratio : 3) {
+  .Bedtime {
+    padding: 3rem;
+    // justify-content: center;
+    .message {
+      font-size: 60px;
+    }
+    .buttons {
+      flex-direction: column;
+    }
+  }
+}
 
 @media only screen and (max-width: 350px) {
   .Bedtime {
-    padding: 2rem;
-    justify-content: center;
+    padding: 3rem;
+    // justify-content: center;
     .message {
       font-size: 60px;
     }
